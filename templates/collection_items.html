@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bullet Journal</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+
+<body>
+    <h1> {{collection_name}}</h1>
+   
+    
+    <form method="POST" action="/{{username}}/{{collection_name}}/add_item">
+        <input type="text" name="list_item"/>
+        <input type="text" name="description"/>
+        <input type="hidden" name="future_log"/>
+        <input type="submit" value="Add"/>
+    </form>
+    
+    {% if list_items %}
+        {% for i in list_items %}
+            {% for item in i.list_items %}
+                <p>{{item.description}} - {{item.priority}}</p>
+            {% endfor %}
+        {% endfor %}
+    {% else %}
+        <p>You have no items!</p>
+    {% endif %}
+    <button type="button" class="btn btn-default"><a href="/{{username}}/get_collections">Collections</a></button> 
+    <button type="button" class="btn btn-default"> <a href="/{{username}}">Index</a>
+    </button>
+</body>
+</html>

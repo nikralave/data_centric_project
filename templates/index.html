@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bullet Journal</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+    <body>
+        <div class=" container-fluid bg">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-8 col-xs-offset-2 ">
+                        <h1> Hi {{ username }}</h1>
+                        <h3>Let's get bulleting</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-8 col-xs-offset-2 ">
+                        <h2>INDEX</h2>
+                        <ul id="index_list">
+                            <li><i class="far fa-star"></i>Future Log</li>
+                            <li><i class="far fa-star"></i>Monthly Log</li>
+                            <li><input type="hidden" name="username" value="{{username}}" /><i class="far fa-star"></i>
+                                <a href="/{{username}}/get_collections">Collections</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+<button type="button" class="btn btn-default"><a href="/">Logout</a>
+    </button> 
+
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        </div>
+    </body>
+
+</html>
